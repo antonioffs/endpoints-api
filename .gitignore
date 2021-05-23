@@ -1,0 +1,6 @@
+/venv
+/.idea
+endpoints/routes/__pycache__
+endpoints/model/__pycache__
+endpoints/exceptions/__pycache__
+endpoints/app/__pycache__
