@@ -25,7 +25,7 @@ def hello():
 
 @routes_blueprint.route('/lista', methods=['GET'])
 def lista():
-    return jsonify(partes_carro)
+    return jsonify(partes_carro), 200
 
 @routes_blueprint.route('/lista/<string:nome>', methods=['GET'])
 def elementoLista(nome):
@@ -33,7 +33,7 @@ def elementoLista(nome):
     retorno = valida.elementAlreadyExists(nome, partes_carro)
     return jsonify({
       "message": f'Elemento na lista: {retorno}'
-    })
+    }), 200
 
 @routes_blueprint.route('/lista/<string:nome>', methods=['POST'])
 def addElemento(nome):
@@ -41,7 +41,7 @@ def addElemento(nome):
     valida.addElement(nome, partes_carro)
     return jsonify({
       "message": "Elemento salvo"
-    })
+    }), 201
 
 @routes_blueprint.route('/lista/<string:nome>', methods=['DELETE'])
 def removeElemento(nome):
@@ -49,5 +49,5 @@ def removeElemento(nome):
     valida.deleteElement(nome, partes_carro)
     return jsonify({
       "message": "Elemento deletado"
-    })
+    }), 204
 
